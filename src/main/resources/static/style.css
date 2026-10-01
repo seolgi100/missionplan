@@ -622,3 +622,70 @@ table a:hover {
         position: static;
     }
 }
+
+/* 휴대폰 폭 */
+@media (max-width: 480px) {
+    body {
+        padding: 16px 12px 48px;
+    }
+
+    section {
+        padding: 14px 12px;
+    }
+
+    .week-day {
+        padding: 12px;
+    }
+
+    /* iOS는 16px 미만 입력칸에 포커스하면 화면을 확대해버린다 */
+    input[type="text"] {
+        font-size: 16px;
+    }
+
+    /* 7~8칸 표가 화면 폭 안에 들어가도록 조밀하게 */
+    table td {
+        padding: 6px 2px;
+        font-size: 12px;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
+    }
+
+    table a {
+        padding: 2px 4px;
+    }
+
+    .day-status-done,
+    .day-status-late {
+        font-size: 10px;
+    }
+
+    .day-status-done::before,
+    .day-status-late::before {
+        content: "";
+    }
+
+    .cycle-nav a {
+        padding: 6px 10px;
+    }
+
+    /* 수정/삭제 팝오버: 떠 있으면 화면 밖으로 나가므로 열리면 줄 전체 폭으로 펼친다 */
+    details.inline-edit[open],
+    details.inline-delete[open] {
+        flex-basis: 100%;
+    }
+
+    details.inline-edit form,
+    details.inline-delete form {
+        position: static;
+        margin-top: 6px;
+        white-space: normal;
+        flex-wrap: wrap;
+    }
+
+    details.inline-edit input[type="text"] {
+        flex: 1;
+        width: auto;
+        max-width: none;
+        min-width: 0;
+    }
+}
