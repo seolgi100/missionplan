@@ -81,6 +81,7 @@ public class RoomDashboardController {
         Room room = (Room) request.getAttribute(MemberSessionFilter.CURRENT_ROOM_ATTR);
         Member me = (Member) request.getAttribute(MemberSessionFilter.CURRENT_MEMBER_ATTR);
         LocalDate today = LocalDate.now();
+        model.addAttribute("today", today);
 
         List<Member> members = memberRepository.findByRoomId(room.getId());
         Optional<Member> partner = members.stream()
